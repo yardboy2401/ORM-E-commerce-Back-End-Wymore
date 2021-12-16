@@ -7,7 +7,7 @@ const sequelize = require('../config/connection.js');
 //create Category sequelize Model
 class Category extends Model {}
 
-//Category sequelize Model db table parameters
+//Category sequelize Model db table column parameters
 Category.init(
   {
     // define columns
