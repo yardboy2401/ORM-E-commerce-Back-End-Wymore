@@ -1,7 +1,10 @@
+//Require sequelize
 const Sequelize = require('sequelize');
 
+//Require dotenv
 require('dotenv').config();
 
+//database connection parameters with sequelize
 const sequelize = process.env.JAWSDB_URL
   ? new Sequelize(process.env.JAWSDB_URL)
   : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
@@ -12,4 +15,5 @@ const sequelize = process.env.JAWSDB_URL
       },
     });
 
+//export sequelize module
 module.exports = sequelize;
