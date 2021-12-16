@@ -1,10 +1,9 @@
+//require router and bring in Tag/Product/ProductTag sequelize Models
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
 
-// The `/api/tags` endpoint
-
-router.get('/', async (req, res) => {
   // find all tags
+router.get('/', async (req, res) => {
   // be sure to include its associated Product data
     try {
     const TagData = await Tag.findAll({
@@ -16,8 +15,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
+router.get('/:id', async (req, res) => {
   // be sure to include its associated Product data
   try {
     const singleTagData = await Tag.findByPk(req.params.id, {
@@ -36,11 +35,11 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
   // create a new tag
+router.post('/', async (req, res) => {
     /* req.body should look like this...
     {
-      tag_name: "Basketball",
+      "tag_name": "Basketball",
     }
   */
     try {
@@ -51,11 +50,11 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
   // update a tag's name by its `id` value
+router.put('/:id', async (req, res) => {
       /* req.body should look like this...
     {
-      tag_name: "Basketball",
+      "tag_name": "Basketball",
     }
     */
   try {
@@ -76,8 +75,8 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
   // delete one tag by its `id` value
+router.delete('/:id', async (req, res) => {
   try {
     const TagData = await Tag.destroy({
       where: {
@@ -96,4 +95,5 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+//export router
 module.exports = router;
