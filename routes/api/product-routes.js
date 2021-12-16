@@ -1,11 +1,10 @@
+//require router and bring in Product/Category/Tag/ProductTag sequelize Models
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
-// The `/api/products` endpoint
 
 // get all products
 router.get('/', async (req, res) => {
-  // find all products
   // be sure to include its associated Category and Tag data
 
   try {
@@ -18,9 +17,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one product
-router.get('/:id', async (req, res) => {
   // find a single product by its `id`
+router.get('/:id', async (req, res) => {
   // be sure to include its associated Category and Tag data
   try {
     const singleProductData = await Product.findByPk(req.params.id, {
@@ -77,7 +75,7 @@ router.put('/:id', (req, res) => {
   // update product data
     /* req.body should look like this...
     {
-      tagIds: [1, 2, 3, 4]
+      "tagIds": [1, 2, 3, 4]
     }
   */
   Product.update(req.body, {
@@ -119,8 +117,8 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
+router.delete('/:id', async (req, res) => {
   try {
     const ProductData = await Product.destroy({
       where: {
@@ -139,4 +137,5 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+//export router
 module.exports = router;
