@@ -1,9 +1,13 @@
+//sequelize Model/DataTypes require 
 const { Model, DataTypes } = require('sequelize');
 
+//require connection file for sequelize
 const sequelize = require('../config/connection.js');
 
+//create Category sequelize Model
 class Category extends Model {}
 
+//Category sequelize Model db table parameters
 Category.init(
   {
     // define columns
@@ -27,4 +31,5 @@ Category.init(
   }
 );
 
+//export Category sequelize Model
 module.exports = Category;
