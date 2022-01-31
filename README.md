@@ -11,7 +11,7 @@ Your task is to build the back end for an e-commerce site by modifying starter c
 
 ## Link to GitHub main project
 
-https://github.com/yardboy2401/week13-ormecommercebackend-wymore
+https://github.com/yardboy2401/ORM-E-commerce-Back-End-Wymore
 
 ## Link to Walkthrough Video
 
